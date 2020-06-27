@@ -1,0 +1,67 @@
+On master:
+
+sudo apt-get update
+sudo apt-get install wget
+wget https://apt.puppetlabas.com/puppet-release-bionic.deb
+sudo dpkg -i puppet-release-bionic.deb
+sudo apt-get install puppetmaster
+
+apt policy puppetmastet
+sudo systemctl status puppet-master.service
+
+vim /etc/default/puppet-master
+# -- JAVE_ARGS="-Xms512m -Xmx512m"
+
+sudo systemctl restart puppet-master.service
+
+sudo ufw alloe 8140/tcp
+
+sudo systemctl restart puppet-master
+
+
+*-* puppet agent
+sudo apt-get update
+sudo apt-get install wget
+wget https://apt.puppetlabas.com/puppet-release-bionic.deb
+sudo dpkg -i puppet-release-bionic.deb
+sudo apt-get install puppet
+
+*-* change hosts file
+*-* add ip of master and slave/agent
+
+sudo systemctl start puppet
+sudo systemctl enable puppet
+
+*-*on puppet master
+
+sudo puppet cert list 
+sudo puppet cert sign --all
+
+*-*on puppet agent
+
+sudo puppet agent test
+
+*-* to check connectivity btwn maste and agent
+
+*-* On master change code or set path
+
+sudo mkdir -P /etc/puppet/code/environments/production/manifests/
+sudo vi /etc/puppet/code/environments/production/manifests/sites.pp
+
+file {'/tmp/it_works.txt':		*		
+  ensure => present,			*make sure it exist
+  mode   => '0644'
+  content => "it works om ${ip address of slave}!\n,
+}
+
+sudo systemctl restart puppet-master
+
+*-* on agent
+
+sudo puppet agent --test
+
+
+
+
+
+
