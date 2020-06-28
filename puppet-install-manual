@@ -15,7 +15,9 @@ sudo apt-get install puppet-master
 apt policy puppetmastet
 sudo systemctl status puppet-master.service
 
-vim /etc/default/puppet-master
+*-* if needed
+
+vi /etc/default/puppet-master
 # -- JAVE_ARGS="-Xms512m -Xmx512m"
 
 sudo systemctl restart puppet-master.service
