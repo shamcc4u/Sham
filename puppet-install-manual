@@ -4,7 +4,7 @@ sudo apt-get update
 sudo apt-get install wget
 wget https://apt.puppetlabs.com/puppet-release-bionic.deb
 sudo dpkg -i puppet-release-bionic.deb
-sudo apt-get install puppetmaster
+sudo apt-get install puppet-master
 
 apt policy puppetmastet
 sudo systemctl status puppet-master.service
@@ -22,7 +22,7 @@ sudo systemctl restart puppet-master
 *-* puppet agent
 sudo apt-get update
 sudo apt-get install wget
-wget https://apt.puppetlabas.com/puppet-release-bionic.deb
+wget https://apt.puppetlabs.com/puppet-release-bionic.deb
 sudo dpkg -i puppet-release-bionic.deb
 sudo apt-get install puppet
 
