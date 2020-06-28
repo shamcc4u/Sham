@@ -62,8 +62,6 @@ file {'/tmp/it_works.txt':		*
   content => "it works om ${ip address of slave}!\n,
 }
 
-sudo systemctl restart puppet-master
-
 *-* on agent
 
 sudo puppet agent --test
