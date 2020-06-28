@@ -1,4 +1,10 @@
-On master:
+*-* 1st thing on master and after that on all agants
+
+vi /ect/hosts
+
+*-* add master ip (gave name puppet always) and all agants ip address and give them names
+
+*-* On master only
 
 sudo apt-get update
 sudo apt-get install wget
@@ -14,20 +20,24 @@ vim /etc/default/puppet-master
 
 sudo systemctl restart puppet-master.service
 
-sudo ufw alloe 8140/tcp
+sudo ufw allow 8140/tcp
 
 sudo systemctl restart puppet-master
 
-
-*-* puppet agent
+*-* after to set path do following steps 
+cd /etc/puppet
+cd /code
+*-* than create below folders
+mkdir -p environments/production/manifests/
+ 
+*-* now goto agents
+ 
 sudo apt-get update
 sudo apt-get install wget
 wget https://apt.puppetlabs.com/puppet-release-bionic.deb
 sudo dpkg -i puppet-release-bionic.deb
 sudo apt-get install puppet
-
-*-* change hosts file
-*-* add ip of master and slave/agent
+sudo systemctl start puppet
 
 sudo systemctl start puppet
 sudo systemctl enable puppet
@@ -43,10 +53,6 @@ sudo puppet agent test
 
 *-* to check connectivity btwn maste and agent
 
-*-* On master change code or set path
-
-sudo mkdir -P /etc/puppet/code/environments/production/manifests/
-sudo vi /etc/puppet/code/environments/production/manifests/sites.pp
 
 file {'/tmp/it_works.txt':		*		
   ensure => present,			*make sure it exist
