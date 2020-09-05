@@ -6,14 +6,20 @@ ssh-keygen
 ssh-cpoy-id "ip adress of node machine"
 ssh "ip adress of node machine"
 # now u r on node machine. Crtl D to come back to master
-# go to root user and install ansible on master/cotroller *-* use labs or ansible documentations
+# go to root user and install ansible on master/cotroller *-* use labs or ansible documentations *-* 
 
 *-* if you are on comman ansible machine use info below to set up your oen paths for ansible *-*
+
 # create a folder
 mkdir "folder name like " sham 
 cd sham
 # create your inventory file
-vi shaminv # give a group name like "ansibleservers" enter all nodes internal ip adress #
+vi shaminv
+# give a group name like "ansibleservers" enter all nodes internal ip adress #
+# define veribales as follows 
+[ansibleservers:vars]
+ansible_ssh_user=sham
+ansible_ssh_pass=shamali
 # copy orginal ansbile.cfg file to your current folder "sham"
 cp /etc/ansible/ansible.cfg .
 # edit ansible.cfg 
@@ -23,9 +29,13 @@ ansible ansibleservers -m ping -u sham -k
 *-* setup is done *-*
 
 *-* if you have your saperate ansible machine *-*
+
 # edit ansible hosts file
 vi /etc/ansible/hosts
-# enter ip adress for your nodes machines
+# enter ip adress for your nodes machines and define varibles as follows
+[ansibleservers:vars]
+ansible_ssh_user=sham
+ansible_ssh_pass=shamali
 # edit ansible.cfg
 vi /etc/ansible/ansible.cfg
 # go to line#72 and look for host key checking remove # sign and change value to flase
