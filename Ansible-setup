@@ -1,16 +1,19 @@
+# set up ansible
 # create more than 1 machines (aws ec2 or gcp instances)
-# have to create user and password for all machine - use user.sh file
+# create a user and password for all machine - *-* use user.sh file *-*
 # on master switch to user and create ssh keys
 ssh-keygen
 ssh-cpoy-id "ip adress of node machine"
 ssh "ip adress of node machine"
 # now u r on node machine. Crtl D to come back to master
-# install ansible on master/cotroller use labs are ansible documentations
+# go to root user and install ansible on master/cotroller *-* use labs or ansible documentations
 # edit ansible hosts file
 vi /etc/ansible/hosts
 # enter ip adress for your nodes machines
 # edit ansible.cfg
 vi /etc/ansible/ansible.cfg
 # go to line#72 and look for host key checking remove # sign and change value to flase
-ansible all -m ping -u shamali -k
-# use SSH keys to connect or configure master to other/nodes machines
+ansible all -m ping -u sham -k
+
+******************************************************************************************************
+
