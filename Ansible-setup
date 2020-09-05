@@ -7,6 +7,22 @@ ssh-cpoy-id "ip adress of node machine"
 ssh "ip adress of node machine"
 # now u r on node machine. Crtl D to come back to master
 # go to root user and install ansible on master/cotroller *-* use labs or ansible documentations
+
+*-* if you are on comman ansible machine use info below to set up your oen paths for ansible *-*
+# create a folder
+mkdir "folder name like " sham 
+cd sham
+# create your inventory file
+vi shaminv # give a group name like "ansibleservers" enter all nodes internal ip adress #
+# copy orginal ansbile.cfg file to your current folder "sham"
+cp /etc/ansible/ansible.cfg .
+# edit ansible.cfg 
+vi ansible.cfg # In front of inventroy use your own inv file path like "/root/sham/shaminv" and save it
+# run the command
+ansible ansibleservers -m ping -u sham -k
+*-* setup is done *-*
+
+*-* if you have your saperate ansible machine *-*
 # edit ansible hosts file
 vi /etc/ansible/hosts
 # enter ip adress for your nodes machines
