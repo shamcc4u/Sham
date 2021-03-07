@@ -21,4 +21,9 @@ mkdir bamboo-install
 cd bamboo-install
 sudo wget https://www.atlassian.com/software/bamboo/downloads/binary/atlassian-bamboo-7.2.2.tar.gz
 tar -xvf atlassian-bamboo-7.2.2.tar.gz
+vi atlassian-bamboo-7.2.2/atlassian-bamboo/WEB-INF/classes/bamboo-init.properties (update the path to bamboo-home directory)
+cd ../../../
+cd bin
+./startup.sh
+
 
