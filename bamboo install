@@ -1,2 +1,11 @@
 sudo apt install openjdk-8-jdk
+// than set java patk
+// tha make 2 dir
+mkdir bamboo-home
+mkdir bamboo-installation
+cd bamboo-installation
 sudo wget https://www.atlassian.com/software/bamboo/downloads/binary/atlassian-bamboo-7.2.2.tar.gz
+tar -xvf atlassian-bamboo-7.2.2.tar.gz
+cd /bamboo-installation/atlassian-bamboo-7.2.2/atlassian-bamboo/WEB-INF/classes
+vi bamboo-init.properties
+*set path* bamboo.home=/home/ubuntu/bamboo-home
